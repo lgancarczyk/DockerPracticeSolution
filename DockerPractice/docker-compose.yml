@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+ ms-sql-server:
+  container_name: "mssql-server-db"
+  image: mcr.microsoft.com/mssql/server:2019-latest
+  environment:
+   ACCEPT_EULA: "Y"
+   SA_PASSWORD: "strongpassword!@#123"
+   MSSQL_PID: Express
+  ports:
+   - "1433:1433"
+ api-app:
+  build: .
+  ports:
+   - "8090:80" 
